@@ -1,0 +1,31 @@
+```{r}
+library(readr)
+freeafrica <- read_csv("freeafrica.csv")
+View(freeafrica)
+```
+```{r}
+##limpiando
+libafrica=freeafrica[c(1,13,15)]
+head(libafrica)
+```
+```{r}
+library(readr)
+freeurope <- read_csv("freeurope.csv")
+View(freeurope)
+```
+
+
+```{r}
+#subset de las variables independientes: Libertad financiera y Libertad comercial
+libeurope=freeurope[c(1,13,15)]
+head(libeurope)
+```
+```{r}
+#juntando las filas de ambas datas
+freeafricaeurope=rbind(libeurope,libafrica)
+```
+
+```{r}
+
+```
+
