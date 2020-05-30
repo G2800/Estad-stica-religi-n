@@ -1,16 +1,17 @@
 ```{r}
-library(readr)
-freeafrica <- read_csv("freeafrica.csv")
-View(freeafrica)
+library(rio)
+lkDTA="https://github.com/G2800/Trabajo-estadistica-Gabriela-Vidal-Gabriela-Ore-Andrea-Chumbile/raw/master/libertades%20economicas%20Africa%20Subsahariana.csv"
+freeafrica=import(lkDTA)
 ```
+
 ```{r}
 ##limpiando
 libafrica=freeafrica[c(1,13,15)]
 head(libafrica)
 ```
 ```{r}
-library(readr)
-freeurope <- read_csv("freeurope.csv")
+lkDTA="https://github.com/G2800/Trabajo-estadistica-Gabriela-Vidal-Gabriela-Ore-Andrea-Chumbile/raw/master/libertades%20economicas%20Europa.csv"
+freeurope=import(lkDTA)
 View(freeurope)
 ```
 
@@ -43,7 +44,7 @@ head(religion)
 names(religion)
 str(religion)
 ```
-#Selecciono los 48 siguientes
+#Selecciono los 48 siguientes a los de Gabriela Oré
 ```{r}
 #el ultimo pais que me toca editar es Grecia (31)
 religion <- religion[-c(6,7),] #restarle uno a todo
@@ -73,6 +74,10 @@ names(religionGV) = c("Pais","Importante","NoImportante")
 
 ```{r}
 str(religionGV)
+```
+
+
+```{r}
 religionGV=na.omit(religionGV)
 religionGV$Importante <- parse_number(religionGV$Importante) #reconociendo el %
 religionGV$NoImportante <- parse_number(religionGV$NoImportante)
